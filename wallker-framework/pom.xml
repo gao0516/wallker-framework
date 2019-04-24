@@ -1,0 +1,434 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.wallker</groupId>
+	<artifactId>wallker-framework</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>wallker-framework</name>
+
+	<developers>
+		<developer>
+			<id>wallker1987</id>
+			<name>Wallker.Gao</name>
+			<email>gao0516.jian@163.com</email>
+			<roles>
+				<role>Developer(Inactive)</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<description>
+	  	Spring Boot 框架
+	  	bean：实体类
+	  	core:核心组件
+	  	tools:工具类
+  	</description>
+
+	<modules>
+		<module>wallker-framework-bean</module>
+		<module>wallker-framework-core</module>
+		<module>wallker-framework-tools</module>
+	</modules>
+
+	<properties>
+		<self.version>1.0.0-SNAPSHOT</self.version>
+
+		<bcprov-jdk16.version>140</bcprov-jdk16.version>
+		<commons-codec.version>1.11</commons-codec.version>
+		<commons-collections.version>3.2.2</commons-collections.version>
+		<commons-io.version>2.4</commons-io.version>
+		<commons-lang3.version>3.7</commons-lang3.version>
+		<dom4j.version>1.6.1</dom4j.version>
+		<druid.version>1.1.10</druid.version>
+		<dubbo-spring-boot.version>0.2.0</dubbo-spring-boot.version>
+		<fastjson.version>1.2.34</fastjson.version>
+		<guava.version>25.1-jre</guava.version>
+		<hibernate-validator.version>6.0.9.Final</hibernate-validator.version>
+		<httpclient.version>4.5</httpclient.version>
+		<httpcore.version>4.4.1</httpcore.version>
+		<httpmime.version>4.3.3</httpmime.version>
+		<jackson-databind.version>2.9.6</jackson-databind.version>
+		<jackson.version>1.9.13</jackson.version>
+		<java.version>1.8</java.version>
+		<junit.version>4.12</junit.version>
+		<jsoup.version>1.2.3</jsoup.version>
+		<kisso.version>3.7.0</kisso.version>
+		<mybatis.spring.boot.version>1.3.2</mybatis.spring.boot.version>
+		<mysql.version>5.1.46</mysql.version>
+		<mapper.version>3.3.6</mapper.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<pagehelper.version>4.1.6</pagehelper.version>
+		<QRCode.version>1.0</QRCode.version>
+		<rocketmq-client.version>4.2.0</rocketmq-client.version>
+		<rocketmq-starter.version>1.0.1-SNAPSHOT</rocketmq-starter.version>
+		<redis.version>2.9.0</redis.version>
+		<spring.version>5.0.5.RELEASE</spring.version>
+		<spring-boot.version>2.1.0.RELEASE</spring-boot.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<shiro.version>1.2.4</shiro.version>
+		<umeng.version>0.0.1</umeng.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Import dependency management from Spring Boot begin -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- 子项目自引入 start -->
+			<dependency>
+				<groupId>com.wallker</groupId>
+				<artifactId>wallker-framework-bean</artifactId>
+				<version>${self.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.wallker</groupId>
+				<artifactId>wallker-framework-core</artifactId>
+			</dependency>
+
+			<dependency>
+				<groupId>com.wallker</groupId>
+				<artifactId>wallker-framework-tools</artifactId>
+			</dependency>
+			<!-- 子项目自引入 end -->
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-test</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-actuator</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-jdbc</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>${mybatis.spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba.boot</groupId>
+				<artifactId>dubbo-spring-boot-starter</artifactId>
+				<version>${dubbo-spring-boot.version}</version>
+			</dependency>
+			<!-- Import dependency management from Spring Boot end -->
+
+			<!-- RocketMQ begin -->
+			<dependency>
+				<groupId>org.apache.rocketmq</groupId>
+				<artifactId>spring-boot-starter-rocketmq</artifactId>
+				<version>${rocketmq-starter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-messaging</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson-databind.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-configuration-processor</artifactId>
+				<version>${spring-boot.version}</version>
+			</dependency>
+			<!-- RocketMQ end -->
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons-codec.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-core-asl</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-asl</artifactId>
+				<version>${jackson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>dom4j</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>${dom4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons-io.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-collections</groupId>
+				<artifactId>commons-collections</artifactId>
+				<version>${commons-collections.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>${redis.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>${httpclient.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.httpcomponents</groupId>
+						<artifactId>httpcore</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpcore</artifactId>
+				<version>${httpcore.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpmime</artifactId>
+				<version>${httpmime.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>${jsoup.version}</version>
+			</dependency>
+
+			<!--分页插件 -->
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper</artifactId>
+				<version>${pagehelper.version}</version>
+			</dependency>
+			<!--通用Mapper -->
+			<dependency>
+				<groupId>tk.mybatis</groupId>
+				<artifactId>mapper</artifactId>
+				<version>${mapper.version}</version>
+			</dependency>
+			<!--Apache Shiro start -->
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-ehcache</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-cas</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<!--Apache Shiro end -->
+
+			<dependency>
+				<groupId>org.hibernate.validator</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${hibernate-validator.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.swetake.util</groupId>
+				<artifactId>QRCode</artifactId>
+				<version>${QRCode.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>bouncycastle</groupId>
+				<artifactId>bcprov-jdk16</artifactId>
+				<version>${bcprov-jdk16.version}</version>
+			</dependency>
+
+			<!--word转换html依赖的jar start -->
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>3.14</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>3.14</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-scratchpad</artifactId>
+				<version>3.14</version>
+			</dependency>
+			<dependency>
+				<groupId>fr.opensagres.xdocreport</groupId>
+				<artifactId>org.apache.poi.xwpf.converter.core</artifactId>
+				<version>1.0.6</version>
+			</dependency>
+			<dependency>
+				<groupId>fr.opensagres.xdocreport</groupId>
+				<artifactId>org.apache.poi.xwpf.converter.xhtml</artifactId>
+				<version>1.0.6</version>
+			</dependency>
+			<!--语音合成依赖jar -->
+			<dependency>
+				<groupId>com.alibaba.nls</groupId>
+				<artifactId>nls-sdk-tts</artifactId>
+				<version>2.0.2</version>
+			</dependency>
+			<!--语音时间计算jar -->
+			<dependency>
+				<groupId>it.sauronsoftware</groupId>
+				<artifactId>jave</artifactId>
+				<version>1.0.2</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>kisso</artifactId>
+				<version>${kisso.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+
+			<!-- sftp start -->
+			<dependency>
+				<groupId>com.jcraft</groupId>
+				<artifactId>jsch</artifactId>
+				<version>0.1.54</version>
+			</dependency>
+			<!-- sftp end -->
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<finalName>wallker-framework</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skipTests>true</skipTests>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>paat.snapshot</id>
+			<name>Nexus Snapshot Repository</name>
+			<url>http://maven.wallker.com/nexus/content/repositories/snapshots/</url>
+			<uniqueVersion>true</uniqueVersion>
+		</snapshotRepository>
+		<repository>
+			<id>paat.release</id>
+			<name>Nexus Release Repository</name>
+			<url>http://maven.wallker.com/nexus/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>paat.public</id>
+			<name>Nexus public Repository</name>
+			<url>http://maven.wallker.com/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+</project>
